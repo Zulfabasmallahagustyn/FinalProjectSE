@@ -1,0 +1,26 @@
+PROGRAM_ProsesOrderMakananMinumanViaOnline
+
+STORE "idMenu" with number
+STORE "quantity" with number
+STORE "type" with string
+STORE "payment" with string
+STORE "isAvailable" with boolean
+STORE "quantityMenu" with number
+
+IF type = "food" OR type = "drink" THEN
+    READ selectMenu 
+    IF isAvailable = true THEN
+        READ idMenu 
+        WRITE quantity
+        IF quantity > quantityMenu THEN 
+            WRITE quantity = quantityMenu   
+        END IF
+        IF checkout THEN
+            READ payment
+            STORE order (idOrder, idPayment, idMenu, quantity)
+            READ detailOrder 
+        END IF
+    ELSE 
+        READ selectMenu 
+    END IF
+END IF
